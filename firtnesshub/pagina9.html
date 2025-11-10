@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { height: 100%; }
+        body {
+            background-color: #000; /* fundo preto */
+            color: #fff;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        /* HAMBURGER + SIDEBAR */
+        .hamburger {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            width: 40px;
+            height: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            height: 4px;
+            border-radius: 3px;
+            background: #fff;
+            transition: transform .25s;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: -260px;
+            top: 0;
+            width: 260px;
+            height: 100%;
+            background: #111;
+            padding: 60px 16px;
+            transition: left .25s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 12px rgba(0,0,0,0.6);
+        }
+        .sidebar.open { left: 0; }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .sidebar a:hover { background: #222; }
+
+        /* LOGO CENTRAL SUPERIOR */
+        .logo {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .logo img {
+            width: 220px;
+            max-width: 60vw;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* GRADE 4x4 de 16 caixas */
+        .grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            width: 92%;
+            max-width: 1100px;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #111;
+            height: 140px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform .25s, background-color .25s;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        }
+        .box:hover {
+            background-color: #e50914; /* vermelho Netflix */
+            transform: scale(1.04);
+        }
+        .box span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #e50914; /* texto vermelho por padrão */
+        }
+
+        /* RECTÂNGULO DE CONTEÚDO (onde vai o treino formatado) */
+        .conteudo {
+            width: 92%;
+            max-width: 900px;
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 18px;
+            margin: 28px 0;
+            border-radius: 10px;
+            color: #fff;
+            line-height: 1.5;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+        }
+
+        /* Estilo específico para "MASCULINO" em negrito e vermelho */
+        .masculino {
+            color: #e50914;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .box { height: 120px; }
+        }
+        @media (min-width: 901px) and (max-width: 1200px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger" aria-label="Abrir menu" title="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar" aria-hidden="true">
+        <a href="perfil.html">🧑‍💼 Meu Perfil</a>
+        <a href="config.html">⚙️ Configurações</a>
+        <a href="sobre.html">ℹ️ Sobre</a>
+        <a href="contato.html">✉️ Contato</a>
+    </nav>
+
+    <!-- LOGO CENTRAL -->
+    <div class="logo">
+        <!-- Certifique-se de que logo.jpg está na mesma pasta deste index.html -->
+        <img src="logo.jpg" alt="Logo do Site" id="siteLogo">
+    </div>
+
+    <!-- GRADE 4x4 -->
+    <div class="grid">
+        <a href="pagina1.html" class="box"><span>Iniciante ABC</span></a>
+        <a href="pagina2.html" class="box"><span>Iniciante ABCD</span></a>
+        <a href="pagina3.html" class="box"><span>Iniciante ABCDE</span></a>
+
+        
+    </div>
+
+    
+
+    <script>
+        // Toggle sidebar
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', () => {
+            const opened = sidebar.classList.toggle('open');
+            sidebar.setAttribute('aria-hidden', String(!opened));
+        });
+
+        // Verifica se a imagem da logo existe, caso contrário dá um aviso no console
+        const logo = document.getElementById('siteLogo');
+        logo.addEventListener('error', () => {
+            console.warn('Erro ao carregar logo.jpg — verifique se o arquivo está na mesma pasta e o nome está exatamente "logo.jpg".');
+            // fallback simples: esconde a imagem para não quebrar layout
+            logo.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

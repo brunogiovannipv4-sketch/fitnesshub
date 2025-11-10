@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Aluno</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background-color: #1c1c1c;
+            padding: 30px 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff4040;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: #2b2b2b;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4040;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff2020;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Perfil do Aluno</h1>
+        <form>
+            <label>1. Nome completo:</label>
+            <input type="text" placeholder="Digite seu nome completo">
+
+            <label>2. Idade:</label>
+            <input type="number" min="10" max="99" placeholder="Ex: 26">
+
+            <label>3. Gênero:</label>
+            <select>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Outro</option>
+            </select>
+
+            <label>4. Altura (cm):</label>
+            <input type="number" placeholder="Ex: 175">
+
+            <label>5. Peso atual (kg):</label>
+            <input type="number" placeholder="Ex: 80">
+
+            <label>6. Objetivo principal:</label>
+            <select>
+                <option>Hipertrofia</option>
+                <option>Emagrecimento</option>
+                <option>Resistência</option>
+                <option>Saúde geral</option>
+            </select>
+
+            <label>7. Nível de experiência:</label>
+            <select>
+                <option>Iniciante</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+            </select>
+
+            <label>8. Frequência semanal de treino:</label>
+            <select>
+                <option>3x por semana</option>
+                <option>4x por semana</option>
+                <option>5x ou mais</option>
+            </select>
+
+            <label>9. Possui alguma lesão ou limitação física?</label>
+            <textarea placeholder="Descreva se houver..."></textarea>
+
+            <label>10. Alimentação atual:</label>
+            <textarea placeholder="Descreva como é sua alimentação hoje..."></textarea>
+
+            <label>11. Sono médio por noite (horas):</label>
+            <input type="number" placeholder="Ex: 7">
+
+            <label>12. Nível de estresse diário:</label>
+            <select>
+                <option>Baixo</option>
+                <option>Médio</option>
+                <option>Alto</option>
+            </select>
+
+            <label>13. Tempo disponível para treinar por dia:</label>
+            <select>
+                <option>Menos de 30 minutos</option>
+                <option>30 a 60 minutos</option>
+                <option>Mais de 1 hora</option>
+            </select>
+
+            <label>14. Já treinou com acompanhamento profissional?</label>
+            <select>
+                <option>Sim</option>
+                <option>Não</option>
+            </select>
+
+            <label>15. Observações adicionais:</label>
+            <textarea placeholder="Fale mais sobre seu histórico ou expectativas..."></textarea>
+
+            <button type="submit">Salvar Perfil</button>
+        </form>
+    </div>
+
+</body>
+</html>
